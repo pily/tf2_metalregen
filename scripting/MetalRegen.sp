@@ -98,8 +98,13 @@ public Action:Timer_Regen(Handle:timer, any:user)
 		{
 			new iCurrentMetal = GetEntProp(i, Prop_Data, "m_iAmmo", 4, 3);
 			new iNewMetal = iMetalToAdd + iCurrentMetal;
-			if (iNewMetal <= iMaxMetal)
+
+			if (iNewMetal <= iMaxMetal){
 				SetEntProp(i, Prop_Data, "m_iAmmo", iNewMetal, 4, 3);
+			}else if(iNewMetal > iMaxMetal){
+				SetEntProp(i, Prop_Data, "m_iAmmo", iMaxMetal, 4, 3);
+			}		
+					
 		}
 	}
 }
